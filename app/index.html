@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="chatApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Socket.IO</title>
+  </head>
+  <body>
+    <div ng-controller="userCreation">
+      <form>
+        <input type="text" ng-model = "view.username">
+        <button ng-click="createUser(view.username)">Submit User</button>
+      </form>
+    </div>
+    <div ng-controller="chatController">
+      <h3>Chat</h3>
+      <ul>
+        <li ng-repeat="message in messages track by $index">
+          <h4>
+            {{mesage.username}}
+          </h4>
+          <span>
+            {{message.message}}
+          </span>
+        </li>
+      </ul>
+      <input type="text" ng-model="message">
+      <button ng-click="submitMessage(message)">Submit Message</button>
+    </div>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <!-- <script src="app/chat.js"></script> -->
+    <script src="angular.js"></script>
+    <!-- <scropt src="app/factories.js"></script> -->
+    <script src="chat/chat-controller.js"></script>
+    <script src="user-creation/user-creation-controller.js"></script>
+  </body>
+</html>
